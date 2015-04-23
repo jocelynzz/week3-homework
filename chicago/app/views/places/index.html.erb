@@ -1,0 +1,10 @@
+<p><a href="/places/new">Add A New Place</a></p>
+
+<ul>
+  <% @places.each do |place| %>
+    <li>
+      <%= link_to place.title, "/places/#{place.id}" %>
+      ($<%= sprintf('%.2f', (place[:price])) %>) <a href="/places/<%=place.id%>/delete">(delete)</a>
+  <% end %>
+
+</ul>

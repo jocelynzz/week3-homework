@@ -1,0 +1,45 @@
+<style>
+  h2 {
+    color: white;
+    background: #555;
+    padding: 6px;
+    text-align: center;
+  }
+  .rating {
+    color: gray;
+    border: solid 1px gray;
+    padding: 4px;
+  }
+  img {
+    float: left;
+    margin-right: 40px;
+    box-shadow: 8px 8px 4px gray;
+    width: "400px";
+  }
+  p {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+</style>
+
+<h2><%= @place.title %></h2>
+
+<img src=<%= @place.photo_url %> alt="image" height="300" width="300">
+
+<h4>Admission Price: $<%= sprintf('%.2f', (@place.price / 1.00)) %> <a href="/places/<%= @place.id %>/edit">Edit</a></h4>
+
+<p><%= @place.description %></p>
+
+<h4>Reviews</h4>
+Write a Review
+
+<form action="/places/<%= @place.id%>/add_review">
+<select name="rating">
+  <option value="5">5 Stars</option>
+  <option value="4">4 Stars</option>
+  <option value="3">3 Stars</option>
+  <option value="2">2 Stars</option>
+  <option value="1">1 Star</option>
+</select>
+
+</form>
